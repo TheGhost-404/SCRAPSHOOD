@@ -249,7 +249,7 @@ main {
   margin: 0;
   font-size: clamp(3.1rem, 5.8vw, 5.5rem);
   line-height: 0.82;
-  letter-spacing: -0.08em;
+  letter-spacing: 0em;
   text-transform: uppercase;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.38);
   transform: skewX(-4deg);
