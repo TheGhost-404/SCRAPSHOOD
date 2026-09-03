@@ -346,6 +346,7 @@ main {
   background: #c9f600;
   box-shadow: 0 0 22px rgba(201, 246, 0, 0.38);
   flex-shrink: 0;
+  margin-right: 8px;
 }
 
 .robinhood-image {
