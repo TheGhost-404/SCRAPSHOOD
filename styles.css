@@ -228,7 +228,7 @@ main {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
   align-items: center;
-  gap: 30px;
+  gap: 48px;
   padding: 42px 0 24px;
 }
 
