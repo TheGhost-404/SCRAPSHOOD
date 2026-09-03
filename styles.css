@@ -1,4 +1,4 @@
-
+:root {
   --bg-dark: #06131d;
   --bg-mid: #0a2132;
   --panel: rgba(11, 20, 30, 0.82);
@@ -841,6 +841,26 @@ main {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Ensure launch banner stacks and has readable spacing on most phones */
+  .launch-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    max-width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .launch-banner span,
+  .launch-banner strong {
+    display: block;
+    text-align: center;
+    letter-spacing: 0.12em;
+  }
 }
 
 @media (max-width: 640px) {
@@ -869,5 +889,48 @@ main {
   .footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Improve launch banner on small screens: center and increase spacing */
+  .launch-banner {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    gap: 18px;
+    padding: 12px 18px;
+    max-width: 92%;
+    flex-wrap: wrap;
+  }
+
+  .launch-banner span,
+  .launch-banner strong {
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+}
+
+/* Strong override in case cached or other CSS prevents stacking on some devices */
+@media (max-width: 980px) {
+  .launch-banner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    padding: 14px 18px !important;
+    max-width: 96% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .launch-banner span,
+  .launch-banner strong {
+    display: block !important;
+    text-align: center !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .launch-banner strong {
+    font-size: 1.25rem !important;
   }
 }
