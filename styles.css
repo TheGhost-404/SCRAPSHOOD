@@ -248,17 +248,39 @@ main {
 .hero-copy h1 {
   margin: 0;
   font-size: clamp(3.1rem, 5.8vw, 5.5rem);
-  line-height: 0.82;
-  letter-spacing: 0em;
+  /* increased vertical breathing */
+  line-height: 1.6;
+  letter-spacing: 0;
   text-transform: uppercase;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.38);
   transform: skewX(-4deg);
   font-family: "Arial Black", "Segoe UI Black", Impact, sans-serif;
 }
 
+/* Add more vertical gap for the explicit break in the hero heading */
+.hero-copy h1 br {
+  display: block;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 980px) {
+  .hero-copy h1 {
+    line-height: 1.12;
+  }
+  .hero-copy h1 br { margin-bottom: 12px; }
+  .hero { gap: 56px; }
+  .brand-row { margin-left: 12px; }
+}
+
+@media (max-width: 640px) {
+  .hero-copy h1 { line-height: 1.06; }
+  .hero-copy h1 br { margin-bottom: 8px; }
+}
+
 .hero-copy h1 span {
   color: var(--gold);
   text-shadow: 0 0 28px rgba(247, 208, 107, 0.32);
+  letter-spacing: 0;
 }
 
 .launch-meta {
@@ -290,15 +312,35 @@ main {
 }
 
 .launch-banner {
-  margin-top: 22px;
+  margin-top: 18px;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 22px;
+  gap: 10px;
+  padding: 10px 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(247, 208, 107, 0.14), rgba(247, 208, 107, 0.05));
-  border: 1px solid rgba(247, 208, 107, 0.38);
-  box-shadow: 0 14px 32px rgba(247, 208, 107, 0.12);
+  background: linear-gradient(135deg, rgba(247, 208, 107, 0.12), rgba(247, 208, 107, 0.03));
+  border: 1px solid rgba(247, 208, 107, 0.28);
+  box-shadow: 0 8px 20px rgba(247, 208, 107, 0.08);
+}
+
+/* Make each pill match the robinhood-mark square height on desktop */
+.launch-banner .launch-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 42px; /* match .robinhood-mark */
+  padding: 0 12px;
+  border-radius: 999px;
+}
+
+.launch-banner .launch-pill span,
+.launch-banner .launch-pill strong {
+  display: inline-block;
+  line-height: 1;
+}
+
+.launch-banner .launch-pill strong {
+  font-size: 0.85rem;
+  font-weight: 900;
 }
 
 .launch-banner span {
@@ -311,7 +353,7 @@ main {
 
 .launch-banner strong {
   color: var(--text);
-  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
   letter-spacing: -0.06em;
   font-family: "Arial Black", "Segoe UI Black", Impact, sans-serif;
 }
@@ -321,14 +363,16 @@ main {
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 12px;
-  margin-left: 4px;
+  margin-left: 64px;
 }
 
 .chain-bubble {
   display: inline-flex;
   align-items: center;
-  gap: 20px;
-  padding: 8px 14px 8px 8px;
+  gap: 16px;
+  padding: 18px 56px 18px 16px;
+  min-width: 360px;
+  justify-content: center;
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(247, 208, 107, 0.14), rgba(247, 208, 107, 0.05));
   border: 1px solid rgba(247, 208, 107, 0.38);
@@ -336,8 +380,8 @@ main {
 }
 
 .robinhood-mark {
-  width: 42px;
-  height: 42px;
+  width: 120px;
+  height: 120px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -346,7 +390,6 @@ main {
   background: #c9f600;
   box-shadow: 0 0 22px rgba(201, 246, 0, 0.38);
   flex-shrink: 0;
-  margin-right: 8px;
 }
 
 .robinhood-image {
@@ -359,12 +402,18 @@ main {
 
 .chain-label {
   color: var(--text);
-  font-size: 0.96rem;
+  font-size: 2rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   font-weight: 800;
   font-family: "Arial Black", "Segoe UI Black", Impact, sans-serif;
   white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .robinhood-mark { width: 80px; height: 80px; }
+  .chain-label { font-size: 1.1rem; }
+  .chain-bubble { padding: 8px 12px 8px 8px; min-width: auto; gap: 8px; justify-content: flex-start; }
 }
 
 .telegram-row {
@@ -452,7 +501,6 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 60x;
 }
 
 .hero-art::before {
@@ -850,12 +898,16 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 12px 18px;
+    gap: 8px;
+    padding: 10px 16px;
     max-width: 92%;
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* stacked pills keep same visual height to match the robinhood mark */
+  .launch-banner .launch-pill { height: 42px; padding: 0 12px; }
+  .launch-banner .launch-pill strong { font-size: 0.95rem; }
 
   .launch-banner span,
   .launch-banner strong {
@@ -898,8 +950,8 @@ main {
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
-    gap: 18px;
-    padding: 12px 18px;
+    gap: 10px;
+    padding: 10px 16px;
     max-width: 92%;
     flex-wrap: wrap;
   }
@@ -918,8 +970,8 @@ main {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 18px !important;
-    padding: 14px 18px !important;
+    gap: 10px !important;
+    padding: 10px 16px !important;
     max-width: 96% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -936,3 +988,53 @@ main {
     font-size: 1.25rem !important;
   }
 }
+
+/* Class-based stack fallback (toggled by JS) */
+.launch-banner.stack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 6px 8px !important;
+}
+
+/* Make stacked pills smaller to reduce overall banner height */
+.launch-banner.stack .launch-pill {
+  height: 22px !important;
+  min-height: 22px !important;
+  padding: 0 6px !important;
+  line-height: 22px !important;
+}
+.launch-banner.stack .launch-pill strong {
+  font-size: 0.96rem !important;
+}
+
+/* Force a compact maximum height and tighten text for stacked banner */
+.launch-banner.stack {
+  max-height: 44px !important;
+  height: auto !important;
+  overflow: hidden !important;
+}
+
+.launch-banner.stack .launch-pill {
+  min-height: 28px !important;
+  line-height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.launch-banner.stack .launch-pill strong,
+.launch-banner.stack .launch-pill span {
+  font-size: 0.75rem !important;
+  line-height: 28px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Strong override to counter earlier media queries that enlarge the pill text */
+.launch-banner.stack .launch-pill strong,
+.launch-banner.stack .launch-pill span {
+  line-height: 1 !important;
+  padding: 0 !important;
